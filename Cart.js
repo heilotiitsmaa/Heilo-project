@@ -4,7 +4,7 @@ export default class Cart {
     }
 
 addProduct(product, quantity){
-    this.items.push(product, quantity);
+    this.items.push({product, quantity});
     return this.items;
     }
 removeProduct(productId){

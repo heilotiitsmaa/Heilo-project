@@ -13,7 +13,7 @@ const bag = new Product (5, 'Kast', 299.99, 'Lisavarustus');
 const discountPercent=20; //overrides the default
 console.log(`Soodusprotsent: ${discountPercent}%`);
 console.log(`Uus hind: ${Product.discountedPrice(camera.price, discountPercent)}€`); //20% soodukas
-console.log(`Kirjeldus: ${lens.describe()}`);
+console.log(`Kirjeldus: ${camera.describe()}`);
 
 //loo ostukorv + lisa tooted ostukorvi
 const cart = new Cart();
@@ -23,12 +23,14 @@ cart.addProduct(tripod, 1);
 cart.addProduct(lens, 3);
 
 //kuva ostukorvi summa + toodete arv
-console.log(`${cart.calculateTotal()}€`); //kokku hind
+console.log(`Hind kõik kokku: ${cart.calculateTotal(cart.items)}€`); //kokku hind
 console.log(`Tooteid on ostukorvis kokku:`, cart.totalItems); //kokku tooteid ostukorvis
 
 //loo klient, esita tellimus
 const customer = new Customer('Kalev Lilleorg');
-customer.placeOder(cart);
+customer.placeOrder(cart);
+console.log(`Aitäh, ${customer.name}, teie tellimus on vastu võetud!`);
+
 
 //kuva kliendi tellimuste ajalugu
 customer.printOrderHistory();

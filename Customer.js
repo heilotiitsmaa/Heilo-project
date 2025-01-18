@@ -1,3 +1,4 @@
+import Order from "./Order.js";
 export default class Customer {
     constructor(name){
     this.name = name;
@@ -5,8 +6,8 @@ export default class Customer {
     }
 
 
-placeOder(cart) {
-    const order = new Order(cart);
+placeOrder(cart) {
+    const order = new Order (cart);
     this.orderHistory.push(order);
     }
 

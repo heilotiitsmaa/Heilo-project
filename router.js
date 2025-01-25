@@ -1,0 +1,1 @@
+//navigeerimise loogika

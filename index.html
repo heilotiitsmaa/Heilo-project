@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html lang="et">
   <head>
+    <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-pood</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .header {
+        background-color: #5aa53772;
+        padding: 20px;
+        justify-content: space-evenly;
+        text-align: center;
+        display: grid;
+        grid-auto-flow: column;}
+
+        .products-container {
+          display: grid;
+          gap: 20px;
+        }
+        .product {
+          border: 1px solid #ccc;
+          padding: 10px;
+          margin: 10px;
+          width: 200px;
+          text-align: center;
+        }
+
+    </style>
   </head>
   <body>
-    <h1>Tere tulemast meie e-poodi!</h1>
+    <header class="header">
+    <div>
+      <button id="home-button"><h1>Tere tulemast meie e-poodi!</h1></button>
+    </div>
+    <div id="categories">
+      <button id="tehnika-button"><h1>Tehnika</h1></button>
+      <button id="lisavarustus-button"><h1>Lisavarustus</h1></button>
+    </div>
+    <div>
+      <button id="wishlist-button"><h1>Soovilist</h1></button>
+      <button id="ostukorv-button"><h1>Ostukorv</h1></button>
+      </div>
+      </header>
 
-    <div id="output"></div>
-
+      <!-- loome vaadete sektsioonid-->
+       <main>
+        <section id="main-container"><p>test1</p></section>
+        <section id="detailed-view">test2</section>
+        <section id="cart-view">test3</section>
+        <section id="favorites-view">test4</section>
+       </main>
     <!-- Laadime main.js moodulina -->
     <script type="module" src="./main.js"></script>
   </body>

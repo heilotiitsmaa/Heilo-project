@@ -1,13 +1,33 @@
-import Product from './Product.js';
-import Cart from './Cart.js';
-import Order from './Order.js';
-import Customer from './Customer.js';
+//gen nav & app init/ üld nav & rak lähtestamine
+import { displayAllProductsView } from "./views/allProductsView.js";
+import { displayProductDetailView } from "./views/productDetailView.js";
+import {displayCartView} from "./views/cartView.js";
+//import { cartConstructor } from "./constructors/Cart.js";
+import Product from './constructors/Product.js';
+import Cart, { cartConstructor } from './constructors/Cart.js';
+import Customer from './constructors/Customer.js';
+import { displayFavoritesView } from "./views/favoritesView.js";
 
 //loo tooted
-const camera = new Product (1, 'Kaamera', 499.99, 'Tehnika');
+const products = [
+    new Product(1, 'Kaamera', 499.99, 'Tehnika'),
+    new Product(2, 'Lääts', 799.99, 'Tehnika'),
+    new Product(3, 'Statiiv', 99.99, 'Lisavarustus'),
+    new Product(4, 'Kaamerakott', 199.99, 'Lisavarustus')
+];
+
+cartConstructor.addProduct(products[0], products[3]);
+
+displayAllProductsView(products);
+displayProductDetailView(products[2]);
+displayCartView(products[2]);
+displayFavoritesView(products[2]);
+
+/*const camera = new Product (1, 'Kaamera', 499.99, 'Tehnika');
 const tripod = new Product (3, 'Statiiv', 1299.99, 'Lisavarustus');
 const lens = new Product (4, 'Lääts', 799.99, 'Tehnika');
-const bag = new Product (5, 'Kast', 299.99, 'Lisavarustus');
+const bag = new Product (5, 'Kaamerakott', 299.99, 'Lisavarustus');
+*/
 
 //use a specific discount %
 const discountPercent=20; //overrides the default

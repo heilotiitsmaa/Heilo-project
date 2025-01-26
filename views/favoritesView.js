@@ -1,42 +1,34 @@
-import { cartConstructor } from "../constructors/Cart.js";
+import { customerConstructor } from "../constructors/Customer.js";
 
+// Lemmikute vaate genereerimine
 export const displayFavoritesView = () => {
-    const cartContainer = document.getElementById("favorites-view");
-    cartContainer.innerHTML = "<h2>Lemmikud</h2>";
+  const favorites = customerConstructor.getAllFavorites();
 
-    const cart = cartConstructor.getAllProducts();
+  const container = document.getElementById("main-container");
+  container.innerHTML = "<h2>Lemmikud</h2>";
 
-    const cartCard = document.createElement("div");
-    cartCard.classList.add("cart");
-
-if (!cart.length) {
-    const cartItemElement = document.createElement("p");
-    cartItemElement.innerText = "Ostukorv on tühi";
-    cartContainer.append(cartItemElement);
+  if (!favorites.length) {
+    const favoriteItemElement = document.createElement("p");
+    favoriteItemElement.innerText = "Lemmikuid ei ole";
+    container.append(favoriteItemElement);
   } else {
-    cart.forEach((item) => {
-      const cartItemElement = document.createElement("div");
-      cartItemElement.classList.add("cart-item");
-      cartItemElement.innerHTML = `
-      <h3>${item.product.name}</h3>
-      <p>Hind: $${item.product.price}</p>
-    `;
+  favorites.forEach((item) => {
+    const favoriteItemElement = document.createElement("div");
+    favoriteItemElement.classList.add("favorite-item");
+    favoriteItemElement.innerHTML = `
+        <h3>${item.product.name}</h3>
+        <p>Hind: $${item.product.price}</p>
+      `;
 
-      // Eemaldamisnupp
-      const removeButton = document.createElement("button");
-      removeButton.textContent = "Eemalda";
-      
-
-      cartItemElement.appendChild(removeButton);
-      cartContainer.append(cartItemElement);
-    });
-
-  }
-
-    /*cartCard.innerHTML = `
-    <h2>Toode: ${product.name}</h2>
-    <p>Hind vaid: ${product.price}€</p>
-    <p>Kogus: ${product.quantity || 404}tk</p>  `;*/
-
-  cartContainer.appendChild(cartCard);
+    // Eemaldamisnupp
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Eemalda lemmikutest";
+    removeButton.onclick = () => {
+      customerConstructor.toggleFavorites(item.product);
+      displayFavoritesView();
+    };
+    favoriteItemElement.append(removeButton);
+    container.appendChild(favoriteItemElement);
+  });
+};
 };

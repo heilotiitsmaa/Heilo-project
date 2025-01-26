@@ -23,4 +23,31 @@ placeOrder(cart) {
         });
 
       }
+      //lemmikute lisamine
+      toggleFavorites(product) {
+        const existingItem = this.favorites.find(
+          (item) => item.product.id === product.id
+        );
+        if (existingItem) {
+          this.favorites = this.favorites.filter(
+            (item) => item.product.id !== product.id
+          );
+        } else {
+          this.favorites.push({ product });
+        }
+      }
+    //kontrollib, kas mingi toode on lemmik
+      isFavorite(productId) {
+        const existingItem = this.favorites.find(
+          (item) => item.product.id === productId
+        );
+        return !!existingItem;
+      }
+    //kõik lemmikasjad
+      getAllFavorites() {
+        return this.favorites;
+      }
     }
+    export const customerConstructor = new Customer("Sten");
+
+    

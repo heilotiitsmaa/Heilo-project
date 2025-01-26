@@ -1,11 +1,16 @@
-export default class Cart {
-    constructor() {
-        this.items=[];
-    }
+import { displayCartView } from "../views/cartView.js";
 
-    getAllProducts(){
-        return this.items;
-    }
+// Cart.js
+export class Cart {
+  constructor() {
+    this.items = [];
+    this.VAT = 1.22;
+  }
+
+  //Võta kõik ostukorvi tooted
+  getAllProducts() {
+    return this.items;
+  }
 
   // Lisa toode ostukorvi või suurenda kogust
   addProduct(product, quantity = 1) {
@@ -17,17 +22,63 @@ export default class Cart {
     } else {
       this.items.push({ product, quantity });
     }
+    this.displayTotalItems();
   }
-removeProduct(productId){
-    return this.items = this.items.filter((item) => item.product.id !== productId);
+
+  // Uuenda toote kogust
+  updateProductQuantity(productId, delta) {
+    const item = this.items.find((item) => item.product.id === productId);
+
+    if (item) {
+      item.quantity = delta > 0 ? delta : 1; // Vähemalt 1 toode
     }
-calculateTotal(){
+
+    if (delta <= 0) {
+      this.removeProduct(productId);
+    }
+
+    this.displayTotalItems();
+    displayCartView();
+  }
+
+  // Eemalda toode ostukorvist ID järgi
+
+  removeProduct(productId) {
+    this.items = this.items.filter((item) => item.product.id !== productId);
+    this.displayTotalItems();
+  }
+
+  // Kogu ostukorvi hind
+  calculateTotal() {
     return this.items.reduce(
-        (total, item) => total + item.product.price * item.quantity, 0);
-    }
-get totalItems() {
-    return this.items.reduce((total, item) => total + item.quantity, 0);
-    } //kasutan outside on constructor getterit=makes property readable
+      (total, item) => total + item.product.price * item.quantity,
+      0
+    );
+  }
+  calculateTotalWithoutVAT() {
+    return this.calculateTotal() / this.VAT;
+  }
+
+  calculateTotalVAT() {
+    return this.calculateTotal() - this.calculateTotalWithoutVAT();
+  }
+
+  // Toodete koguarv
+  displayTotalItems() {
+    const cartCount = document.getElementById("cart-count");
+
+    cartCount.innerHTML = this.items.reduce(
+      (total, item) => total + item.quantity,
+      0
+    );
+  }
+
+  // Ostukorvi tühjendamine
+  clear() {
+    this.items = [];
+    this.displayTotalItems();
+    displayCartView();
+  }
 }
 
-export const  cartConstructor = new Cart();
+export const cartConstructor = new Cart();

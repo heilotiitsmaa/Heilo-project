@@ -17,7 +17,7 @@ const initApp = async () => {
   const categoryMenu = document.getElementById("categories");
 
   categories.forEach((category) => {
-    const categoryElement = document.createElement("li");
+    const categoryElement = document.createElement("button");
     categoryElement.textContent = category;
     categoryElement.onclick = () => {
         console.log(category);

@@ -1,0 +1,26 @@
+[
+    {
+       "id": 1,
+       "name": "Kaamera",
+       "price":699.99,
+       "category":"Elektroonika"
+    },
+    {
+       "id": 2,
+       "name": "Statiiv",
+       "price":99.99,
+       "category":"Lisad"
+    },
+    {
+       "id": 3,
+       "name": "Kaamerakott",
+       "price":199.99,
+       "category":"Lisad"
+    },
+    {
+        "id": 3,
+        "name": "Lääts",
+        "price":499.99,
+        "category":"Elektroonika"
+     }  
+   ]

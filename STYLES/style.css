@@ -1,0 +1,44 @@
+.header {
+  background-color: #ca7615;
+  padding: 20px;
+  height: 200px;
+  color: red;
+}
+.header h1 {
+  color: red;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.products-container {
+  display: grid;
+  gap: 20px;
+}
+
+.product {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+header button, header button:hover button {
+  background-color: rgb(237, 241, 189);
+}
+header button:hover {
+  background: rgb(255, 217, 0);
+}
+
+body {
+  background: rgb(237, 241, 189);
+}
+
+.favorites {
+  background: rgb(237, 241, 189);
+}
+.favorites::after {
+  content: " :)";
+}/*# sourceMappingURL=style.css.map */

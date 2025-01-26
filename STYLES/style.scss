@@ -1,0 +1,40 @@
+@import "./variables";
+@import './header';
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+
+  .products-container {
+    display: grid;
+    gap: 20px;
+  }
+  .product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+  }
+
+  header button {
+    background-color: $primaryBtn;
+    &:hover{
+        background: rgb(255, 217, 0);
+        @extend header;
+
+    }
+  }
+
+  body {
+    background: $primaryBtn;
+    
+  }
+
+  .favorites {
+    background: $primaryBtn;
+    &::after {
+        content: " :)";
+    }
+  }

@@ -1,5 +1,5 @@
-import { displayAllProductsView } from "./public/views/allProductsView.js";
-import { navigate } from "./public/router.js";
+import { displayAllProductsView } from "./views/allProductsView.js";
+import { navigate } from "./router.js";
 import { getAllCategory } from "./api.js";
 
 const initApp = async () => {

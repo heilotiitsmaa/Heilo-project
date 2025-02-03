@@ -3,6 +3,7 @@ import { customerConstructor } from "../constructors/Customer.js";
 // Lemmikute vaate genereerimine
 export const displayFavoritesView = () => {
   const favorites = customerConstructor.getAllFavorites();
+  console.log(customerConstructor);
 
   const container = document.getElementById("main-container");
   container.innerHTML = "<h2>Lemmikud</h2>";
@@ -17,6 +18,8 @@ export const displayFavoritesView = () => {
     favoriteItemElement.classList.add("favorite-item");
     favoriteItemElement.innerHTML = `
         <h3>${item.product.name}</h3>
+        <p>Nimi: ${item.product.name}</p>
+        <img class="pilt" src="${item.product.image}" alt="${item.product.name}" />
         <p>Hind: $${item.product.price}</p>
       `;
 

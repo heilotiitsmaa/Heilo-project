@@ -16,6 +16,7 @@ export const displayProductDetailView = async (productId) => {
       <h2>${product.name}</h2>
       <p>Kategooria: ${product.category}</p>
       <p>Hind: $${product.price}</p>
+      <p>Pilt: ${product.image}</p>
       <p>ID: ${product.id}</p>
     `;
 
@@ -28,14 +29,14 @@ export const displayProductDetailView = async (productId) => {
 
   const favoriteButton = document.createElement("button");
   favoriteButton.textContent = customerConstructor.isFavorite(product.id)
-    ? "Eemalda Lemmikutest"
-    : "Lisa Lemmikutesse";
+    ? "Eemalda Lemmikutest :("
+    : "Lisa Lemmikutesse :)";
 
   favoriteButton.onclick = (e) => {
     e.stopPropagation(); // see ei lase parent'i tegevusi teha, ehk ei liigu detail vaatesse
     favoriteButton.textContent = customerConstructor.isFavorite(product.id)
-      ? "Lisa Lemmikutesse"
-      : "Eemalda Lemmikutest";
+      ? "Lisa Lemmikutesse :)"
+      : "Eemalda Lemmikutest :(";
     customerConstructor.toggleFavorites(product);
   };
 

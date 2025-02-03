@@ -79,6 +79,7 @@ export const getFavoritesProductByuserID = async (userID) => {
     console.error(error);
   }
 };
+
 export const addFavoriteProductById = async (userID, productId) => {
   try {
     const data = await fetch(`api/favorites/${userID}/${productId}`, {

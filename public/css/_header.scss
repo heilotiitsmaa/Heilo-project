@@ -1,12 +1,27 @@
 .header {
-    background-color: #ca7615;
+    background-color: #1bca1586;
     padding: 20px;
-    height: 200px;
+    height: 300px;
     color: $textColor;
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    align-content: space-between;
+    justify-content: center;
+    align-items: center;
 
   
     h1 {
       color: $textColor;
     }
   
-  }
+    .category-buttons {
+      display: grid;
+      justify-items: stretch;
+    }
+    .favorites-button {
+      background-color: rgba(211, 115, 255, 0.554);
+    }
+    .favorites-button:hover {
+      background-color: rgb(182, 66, 254);
+  }}

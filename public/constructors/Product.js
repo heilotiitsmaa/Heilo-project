@@ -1,11 +1,13 @@
 export class Product {
-    constructor(id, name, price, category) {
+    constructor(id, name, price, category, description, image) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.category = category;
         this.quantity = 0;
         this.favorite = undefined;
+        this.image = image;
+        this.description = description;
     }
     describe(){
         return `tootekood:${this.id}, toode:${this.name}, hind:${this.price.toFixed(2)}€, kategooria:${this.category}`;

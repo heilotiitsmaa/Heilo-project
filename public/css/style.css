@@ -1,15 +1,32 @@
 .header {
-  background-color: #ca7615;
+  background-color: rgba(27, 202, 21, 0.5254901961);
   padding: 20px;
-  height: 200px;
-  color: red;
+  height: 300px;
+  color: rgba(0, 0, 0, 0.654);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 .header h1 {
-  color: red;
+  color: rgba(0, 0, 0, 0.654);
+}
+.header .category-buttons {
+  display: grid;
+  justify-items: stretch;
+}
+.header .favorites-button {
+  background-color: rgba(211, 115, 255, 0.554);
+}
+.header .favorites-button:hover {
+  background-color: rgb(182, 66, 254);
 }
 
 body {
   font-family: Arial, sans-serif;
+  background: rgba(183, 255, 138, 0.52);
 }
 
 .products-container {
@@ -25,20 +42,34 @@ body {
   text-align: center;
 }
 
-header button, header button:hover button {
-  background-color: rgb(237, 241, 189);
+header button, button:hover button {
+  background-color: rgba(0, 193, 0, 0.697);
+  border-radius: 50px;
 }
-header button:hover {
-  background: rgb(255, 217, 0);
-}
-
-body {
-  background: rgb(237, 241, 189);
+header button:hover, button:hover button:hover {
+  background: rgba(255, 117, 117, 0.46);
 }
 
 .favorites {
-  background: rgb(237, 241, 189);
+  background: greenyellow;
 }
-.favorites::after {
-  content: " :)";
+.favorites .inFavorites::after {
+  background: rgb(38, 0, 255);
+}
+
+button {
+  background: yellow;
+  border-radius: 50px;
+}
+button:hover {
+  background: rgba(255, 0, 0, 0.46);
+}
+
+div .categories {
+  display: grid;
 }/*# sourceMappingURL=style.css.map */
+
+.pilt {
+  width: 100px;
+  height: 100px;
+}

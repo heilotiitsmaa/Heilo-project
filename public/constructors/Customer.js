@@ -7,9 +7,9 @@ import {
 } from "../api.js";
 
 export class Customer {
-  constructor() {
-    this._userName;
-    this._userID;
+  constructor(name, id) {
+    this._userName = name;
+    this._userID = id;
     this.orderHistory = [];
     this.favorites = [];
   }
@@ -54,13 +54,13 @@ export class Customer {
       );
     });
   }
-  async toggleFavorites(productId) {
-    const existingItem = this.favorites.find((item) => item.id === productId);
+  async toggleFavorites(product) {
+    const existingItem = this.favorites.find((item) => item.id === product.id);
     //  console.log(productId);
     if (existingItem) {
-      await deleteFavoriteProductById(this._userID, productId);
+      await deleteFavoriteProductById(this._userID, product);
     } else {
-      await addFavoriteProductById(this._userID, productId);
+      await addFavoriteProductById(this._userID, product);
     }
     this.getAllFavorites();
   }
@@ -100,4 +100,4 @@ export class Customer {
   }
 }
 
-export const customerConstructor = new Customer();
+export const customerConstructor = new Customer("Kaja", 7);

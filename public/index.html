@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="./css/style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--<img src="${product.image}" alt="${product.name}" />-->
     <title>E-pood</title>
   </head>
   <body>
@@ -12,10 +13,10 @@
       <button id="home-button"><h1>Tere tulemast meie e-poodi!</h1></button>
     </div>
     <!-- !siin on toote kategooriad -->
-    <div id="categories"> 
+    <div id="categories" class="category-buttons"> 
     </div>
     <div>
-      <button id="favorites-button"><h1>Lemmikud</h1></button>
+      <button id="favorites-button" class="favorites-button"><h1>Lemmikud</h1></button>
       <button id="cart-button">
         Ostukorv (<span id="cart-count">0</span>)
       </button>
@@ -24,10 +25,10 @@
 
       <!-- loome vaadete sektsioonid-->
        <main>
-        <section id="main-container"><p>test1</p></section>
-        <section id="detailed-view">test2</section>
-        <section id="cart-view">test3</section>
-        <section id="favorites-view">test4</section>
+        <section id="main-container"><p></p></section>
+        <section id="detailed-view"></section>
+        <section id="cart-view"></section>
+        <section id="favorites-view"></section>
        </main>
     <!-- Laadime main.js moodulina -->
     <script type="module" src="./main.js"></script>

@@ -25,6 +25,7 @@ export const displayCartView = () => {
       cartItemElement.classList.add("cart-item");
       cartItemElement.innerHTML = `
       <h3>${item.product.name}</h3>
+      <img class="pilt" src="${item.product.image}" alt="${item.product.name}" />
       <p>Hind: $${item.product.price}</p>
       <p>Kogus: ${item.quantity}</p>
     `;

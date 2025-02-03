@@ -20,9 +20,10 @@ export const displayAllProductsView = async (category) => {
     productCard.innerHTML = `
         <h3>${product.name}</h3>
         <p>Kategooria: ${product.category}</p>
+        <img class="pilt" src=${product.image} alt="${product.name}" />
         <p>Hind: $${product.price}</p>
         <button id="favorites-${product.id}" class="favorites">${
-      customerConstructor.isFavorite(product.id) ? "Eemalda lemmikutest" : "Lisa lemmikutesse"
+      customerConstructor.isFavorite(product.id) ? "Eemalda lemmikutest :(" : "Lisa lemmikutesse :)"
     }</button>
       `;
 
@@ -50,8 +51,8 @@ export const displayAllProductsView = async (category) => {
         //vastavelt klassi nimele lisan teksi või ikooni, kes soovib
 
         favoriteButton.textContent = customerConstructor.isFavorite(product.id)
-          ? "Lisa lemmikutesse"
-          : "Eemalda lemmikust";
+          ? "Lisa lemmikutesse :)"
+          : "Eemalda lemmikust :(";
 
         //Või vaatad, kas klassinimi on olemas klassi listis või mitte
         // favoriteButton.textContent = favoriteButton.classList.contains(

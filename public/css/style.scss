@@ -19,9 +19,10 @@ body {
   }
 
   header button {
-    background-color: $primaryBtn;
+    background-color: rgba(0, 193, 0, 0.697);
+    border-radius: 50px;
     &:hover{
-        background: rgb(255, 217, 0);
+        background: rgba(255, 117, 117, 0.46);
         @extend header;
 
     }
@@ -33,8 +34,20 @@ body {
   }
 
   .favorites {
-    background: $primaryBtn;
+    background: greenyellow;
     &::after {
-        content: " :)";
+        background: red;
     }
   }
+
+  button {
+    background: yellow;
+    border-radius: 50px;
+    &:hover{
+      background: rgba(255, 0, 0, 0.46);
+      @extend header;
+    }}
+
+    div .categories {
+      display: grid;
+    }

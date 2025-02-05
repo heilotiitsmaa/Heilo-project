@@ -58,9 +58,9 @@ export class Customer {
     const existingItem = this.favorites.find((item) => item.id === product.id);
     //  console.log(productId);
     if (existingItem) {
-      await deleteFavoriteProductById(this._userID, product);
+      await deleteFavoriteProductById(this._userID, product.id);
     } else {
-      await addFavoriteProductById(this._userID, product);
+      await addFavoriteProductById(this._userID, product.id);
     }
     this.getAllFavorites();
   }
